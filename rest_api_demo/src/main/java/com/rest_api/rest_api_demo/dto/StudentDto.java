@@ -1,6 +1,7 @@
 package com.rest_api.rest_api_demo.dto;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class StudentDto {
@@ -8,12 +9,15 @@ public class StudentDto {
   private Long id;
 
   @Size(min=2,max=50,message="Must be 2 to 50 characters.")
+  @NotBlank(message="First name is required.")
   private String firstName;
 
   @Size(min=2,max=50,message="Must be 2 to 50 characters.")
+  @NotBlank(message="Last name is required.")
   private String lastName;
 
   @Email (message="Email is required and should be valid.")
+  @NotBlank(message="Email is required.")
   private String email;
 
   public StudentDto() {
